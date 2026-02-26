@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #0a0a0a;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Brutalist Design Elements */
+.brutalist-border {
+  border: 4px solid #FF6B35;
+  box-shadow: 8px 8px 0 rgba(255, 107, 53, 0.3);
+}
+
+.brutalist-btn {
+  @apply px-4 md:px-6 py-2 md:py-3 font-bold text-sm md:text-lg uppercase tracking-wider transition-all border-2 md:border-4 min-h-[44px] md:min-h-[48px];
+}
+
+.brutalist-btn-primary {
+  @apply brutalist-btn bg-primary border-primary text-dark hover:shadow-[8px_8px_0_0_rgba(255,107,53,0.5)] hover:translate-x-[-4px] hover:translate-y-[-4px];
+}
+
+.brutalist-btn-secondary {
+  @apply brutalist-btn bg-transparent border-primary text-primary hover:bg-primary hover:text-dark;
+}
+
+.brutalist-card {
+  @apply bg-dark-light border-4 border-primary/30 p-4 md:p-6;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.8);
+  }
+}
+
+.live-indicator {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6B35;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F7931E;
+}
+
+/* Hero Section Dots */
+.dots-background {
+  background-image: radial-gradient(rgba(255, 107, 53, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  @apply hidden fixed top-16 left-0 right-0 bg-dark border-b-4 border-primary z-40;
+}
+
+.mobile-menu.active {
+  @apply flex flex-col;
+}
+
+/* Form inputs mobile friendly */
+input, select, textarea {
+  @apply text-base md:text-base;
+}
+
+select {
+  appearance: none;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding-right: 2.5rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #FF6B35 50%),
+    linear-gradient(135deg, #FF6B35 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% - 3px),
+    calc(100% - 14px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+select option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
